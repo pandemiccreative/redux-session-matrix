@@ -1,0 +1,214 @@
+[{
+  "Name": "Session 1 Title",
+  "FullName": "Session 1 Title (Round 1)",
+  "Type": {
+    "Id": "50f35a41-04f6-456a-851d-b3125d83a365",
+    "Language": {
+      "Name": "en"
+    },
+    "NameBase": "SessionType 1",
+    "DisplayNameBase": "",
+    "Version": 1,
+    "Url": "/global-content/sessionsdata/sessiontypes/sessiontype-1"
+  },
+  "Url": "/sessions/session-1/round-1",
+  "StartRound": {
+    "TimeSpan": "12:00 -1:00 PM"
+  },
+  "EndRound": {
+    "TimeSpan": "12:00 -1:00 PM"
+  },
+  "Day": {
+    "DisplayName": "Friday, January 29"
+  },
+  "Room": {
+    "DisplayName": "Room 1",
+    "Id": "20cde22b-2152-4d99-ae91-c6b8109468e6",
+    "Language": {
+      "Name": "en"
+    },
+    "NameBase": "Room 1",
+    "DisplayNameBase": "",
+    "Version": 1,
+    "Url": "/global-content/sessionsdata/rooms/room-1"
+  },
+  "Speakers": [{
+    "Company": "ConnectWise",
+    "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut laoreet nunc nec turpis laoreet rutrum. Proin a euismod nunc. Etiam elementum tincidunt magna, eu euismod nulla efficitur vel. Sed tortor mauris, varius at enim ac, lobortis vulputate nunc. Pellentesque ligula magna, gravida a ullamcorper in, gravida vel nisl. Praesent maximus gravida est, ut pulvinar felis facilisis id. Vivamus ut lacus justo. Sed blandit dapibus nunc, et porttitor leo tristique eget. Phasellus eget rhoncus odio, vel bibendum sem. In varius accumsan feugiat. Fusce condimentum maximus neque, et rhoncus justo sagittis et. Phasellus rhoncus accumsan metus, imperdiet efficitur lorem fringilla id.",
+    "FirstName": "Arnie",
+    "LastName": "Bellini",
+    "Photo": {
+      "Alt": "Arnie Bellini",
+      "Border": "",
+      "Class": "",
+      "Height": 600,
+      "HSpace": 0,
+      "Src": "/~/media/dc0ec5ee36fe4152abdb77272645ae30.jpg",
+      "VSpace": 0,
+      "Width": 600,
+      "MediaId": "dc0ec5ee-36fe-4152-abdb-77272645ae30",
+      "Title": ""
+    },
+    "Title": "CEO",
+    "Id": "70d50eb9-83aa-4cb2-85f0-69a742132af7",
+    "Language": {
+      "Name": "en"
+    },
+    "NameBase": "Speaker 1",
+    "DisplayNameBase": "",
+    "Version": 1,
+    "Url": "/global-content/speakersdata/speakers/speaker-1"
+  }],
+  "SessionLevels": [{
+    "DisplayName": "SessionLevel 1",
+    "Id": "5d4aef82-288d-4a39-a996-9e71ec936769",
+    "Language": {
+      "Name": "en"
+    },
+    "NameBase": "SessionLevel 1",
+    "DisplayNameBase": "",
+    "Version": 1,
+    "Url": "/global-content/sessionsdata/sessionlevels/sessionlevel-1"
+  }],
+  "id": "2784ed66-116e-4ecd-aee6-1da56649f44d"
+}, {
+  "Name": "Session 1 Title",
+  "FullName": "Session 1 Title (Round 4)",
+  "Type": {
+    "Id": "50f35a41-04f6-456a-851d-b3125d83a365",
+    "Language": {
+      "Name": "en"
+    },
+    "NameBase": "SessionType 1",
+    "DisplayNameBase": "",
+    "Version": 1,
+    "Url": "/global-content/sessionsdata/sessiontypes/sessiontype-1"
+  },
+  "Url": "/sessions/session-1/round-4",
+  "StartRound": {
+    "TimeSpan": "12:00 -1:00 PM"
+  },
+  "EndRound": {
+    "TimeSpan": "12:00 -1:00 PM"
+  },
+  "Day": {
+    "DisplayName": "Saturday, January 30"
+  },
+  "Room": {
+    "DisplayName": "Room 1",
+    "Id": "20cde22b-2152-4d99-ae91-c6b8109468e6",
+    "Language": {
+      "Name": "en"
+    },
+    "NameBase": "Room 1",
+    "DisplayNameBase": "",
+    "Version": 1,
+    "Url": "/global-content/sessionsdata/rooms/room-1"
+  },
+  "Speakers": [{
+    "Company": "ConnectWise",
+    "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut laoreet nunc nec turpis laoreet rutrum. Proin a euismod nunc. Etiam elementum tincidunt magna, eu euismod nulla efficitur vel. Sed tortor mauris, varius at enim ac, lobortis vulputate nunc. Pellentesque ligula magna, gravida a ullamcorper in, gravida vel nisl. Praesent maximus gravida est, ut pulvinar felis facilisis id. Vivamus ut lacus justo. Sed blandit dapibus nunc, et porttitor leo tristique eget. Phasellus eget rhoncus odio, vel bibendum sem. In varius accumsan feugiat. Fusce condimentum maximus neque, et rhoncus justo sagittis et. Phasellus rhoncus accumsan metus, imperdiet efficitur lorem fringilla id.",
+    "FirstName": "Arnie",
+    "LastName": "Bellini",
+    "Photo": {
+      "Alt": "Arnie Bellini",
+      "Border": "",
+      "Class": "",
+      "Height": 600,
+      "HSpace": 0,
+      "Src": "/~/media/dc0ec5ee36fe4152abdb77272645ae30.jpg",
+      "VSpace": 0,
+      "Width": 600,
+      "MediaId": "dc0ec5ee-36fe-4152-abdb-77272645ae30",
+      "Title": ""
+    },
+    "Title": "CEO",
+    "Id": "70d50eb9-83aa-4cb2-85f0-69a742132af7",
+    "Language": {
+      "Name": "en"
+    },
+    "NameBase": "Speaker 1",
+    "DisplayNameBase": "",
+    "Version": 1,
+    "Url": "/global-content/speakersdata/speakers/speaker-1"
+  }],
+  "SessionLevels": [{
+    "DisplayName": "SessionLevel 1",
+    "Id": "5d4aef82-288d-4a39-a996-9e71ec936769",
+    "Language": {
+      "Name": "en"
+    },
+    "NameBase": "SessionLevel 1",
+    "DisplayNameBase": "",
+    "Version": 1,
+    "Url": "/global-content/sessionsdata/sessionlevels/sessionlevel-1"
+  }],
+  "id": "0131a925-ede8-402a-a00b-ddb2261352f5"
+}, {
+  "Name": "Session 2",
+  "FullName": "Session 2 (Round 2)",
+  "Type": {
+    "Id": "00000000-0000-0000-0000-000000000000",
+    "Version": 0
+  },
+  "Url": "/sessions/session-2/round-2",
+  "StartRound": {
+    "TimeSpan": "12:00 -1:00 PM"
+  },
+  "EndRound": {
+    "TimeSpan": "12:00 -1:00 PM"
+  },
+  "Day": {
+    "DisplayName": "Friday, January 29"
+  },
+  "Room": {
+    "DisplayName": "Room 2",
+    "Id": "23e93144-fb1f-4771-9cf4-c463a04bbcda",
+    "Language": {
+      "Name": "en"
+    },
+    "NameBase": "Room 2",
+    "DisplayNameBase": "",
+    "Version": 1,
+    "Url": "/global-content/sessionsdata/rooms/room-2"
+  },
+  "Speakers": [{
+    "Company": "Company",
+    "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut laoreet nunc nec turpis laoreet rutrum. Proin a euismod nunc. Etiam elementum tincidunt magna, eu euismod nulla efficitur vel. Sed tortor mauris, varius at enim ac, lobortis vulputate nunc. Pellentesque ligula magna, gravida a ullamcorper in, gravida vel nisl. Praesent maximus gravida est, ut pulvinar felis facilisis id. Vivamus ut lacus justo. Sed blandit dapibus nunc, et porttitor leo tristique eget. Phasellus eget rhoncus odio, vel bibendum sem. In varius accumsan feugiat. Fusce condimentum maximus neque, et rhoncus justo sagittis et. Phasellus rhoncus accumsan metus, imperdiet efficitur lorem fringilla id.",
+    "FirstName": "First Name",
+    "LastName": "Last Name",
+    "Photo": {
+      "Alt": "Arnie Bellini",
+      "Border": "",
+      "Class": "",
+      "Height": 600,
+      "HSpace": 0,
+      "Src": "/~/media/dc0ec5ee36fe4152abdb77272645ae30.jpg",
+      "VSpace": 0,
+      "Width": 600,
+      "MediaId": "dc0ec5ee-36fe-4152-abdb-77272645ae30",
+      "Title": ""
+    },
+    "Title": "Title",
+    "Id": "a411a876-406c-4ee3-803d-f59dc19b64ed",
+    "Language": {
+      "Name": "en"
+    },
+    "NameBase": "Speaker 2",
+    "DisplayNameBase": "",
+    "Version": 1,
+    "Url": "/global-content/speakersdata/speakers/speaker-2"
+  }],
+  "SessionLevels": [{
+    "DisplayName": "SessionLevel 2",
+    "Id": "09156945-6734-4f0f-9081-a605301c97e6",
+    "Language": {
+      "Name": "en"
+    },
+    "NameBase": "SessionLevel 2",
+    "DisplayNameBase": "",
+    "Version": 1,
+    "Url": "/global-content/sessionsdata/sessionlevels/sessionlevel-2"
+  }],
+  "id": "36d22cee-430b-461a-90c2-fe762ade7d71"
+}]

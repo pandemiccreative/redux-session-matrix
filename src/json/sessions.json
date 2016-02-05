@@ -1,0 +1,246 @@
+[
+  {
+    "Name": "Session 1",
+    "Type": {
+      "DisplayName": "Education Breakout"
+    },
+    "StartRound": {
+      "TimeSpan": "9:15 AM - 10:45 AM"
+    },
+    "EndRound": {
+      "TimeSpan": "9:15 AM - 10:45 AM"
+    },
+    "Day": {
+      "DisplayName": "Tuesday, June 21"
+    },
+    "Room": {
+      "DisplayName": "Room 1"
+    },
+    "SessionLevels": [{
+      "DisplayName": "SessionLevel 1"
+    }],
+    "id": "2784ed66-116e-4ecd-aee6-1da56649f44d",
+    "faved": true
+  },
+  {
+    "Name": "Session 2",
+    "Type": {
+      "DisplayName": "Test"
+    },
+    "StartRound": {
+      "TimeSpan": "9:15 AM - 10:45 AM"
+    },
+    "EndRound": {
+      "TimeSpan": "9:15 AM - 10:45 AM"
+    },
+    "Day": {
+      "DisplayName": "Tuesday, June 21"
+    },
+    "Room": {
+      "DisplayName": "Room 2"
+    },
+    "SessionLevels": [{
+      "DisplayName": "SessionLevel 2"
+    }],
+    "id": "36d22cee-430b-461a-90c2-fe762ade7d71"
+  },
+  {
+    "Name": "Session 3 (Round 1 & 2)",
+    "Type": {
+      "DisplayName": "Test"
+    },
+    "StartRound": {
+      "TimeSpan": "9:15 AM - 10:45 AM"
+    },
+    "EndRound": {
+      "TimeSpan": "10:45 AM - 12:00 PM"
+    },
+    "Day": {
+      "DisplayName": "Tuesday, June 21"
+    },
+    "Room": {
+      "DisplayName": "Room 1"
+    },
+    "SessionLevels": [{
+      "DisplayName": "SessionLevel 1"
+    }],
+    "id": "2784ed66-116e-4ecd-aee6-1da56649f45d"
+  },
+  {
+    "Name": "Session 4",
+    "Type": {
+      "DisplayName": "Test"
+    },
+    "StartRound": {
+      "TimeSpan": "9:15 AM - 10:45 AM"
+    },
+    "EndRound": {
+      "TimeSpan": "9:15 AM - 10:45 AM"
+    },
+    "Day": {
+      "DisplayName": "Tuesday, June 21"
+    },
+    "Room": {
+      "DisplayName": "Room 1"
+    },
+    "SessionLevels": [{
+      "DisplayName": "SessionLevel 1"
+    }],
+    "id": "3784ed66-116e-4ecd-aee6-1da56649f45d"
+  },
+  {
+    "Name": "Session 5",
+    "Type": {
+      "DisplayName": "Test"
+    },
+    "StartRound": {
+      "TimeSpan": "9:15 AM - 10:45 AM"
+    },
+    "EndRound": {
+      "TimeSpan": "9:15 AM - 10:45 AM"
+    },
+    "Day": {
+      "DisplayName": "Tuesday, June 21"
+    },
+    "Room": {
+      "DisplayName": "Room 1"
+    },
+    "SessionLevels": [{
+      "DisplayName": "SessionLevel 1"
+    }],
+    "id": "1784ed66-116e-4ecd-aee6-1da56649f45d"
+  },
+
+  {
+    "Name": "Session 6",
+    "Type": {
+      "DisplayName": "Test"
+    },
+    "StartRound": {
+      "TimeSpan": "10:45 AM - 12:00 PM"
+    },
+    "EndRound": {
+      "TimeSpan": "10:45 AM - 12:00 PM"
+    },
+    "Day": {
+      "DisplayName": "Tuesday, June 21"
+    },
+    "Room": {
+      "DisplayName": "Room 1"
+    },
+    "SessionLevels": [{
+      "DisplayName": "SessionLevel 1"
+    }],
+    "id": "4784ed66-116e-4ecd-aee6-1da56649f45d"
+  },
+  {
+    "Name": "Session 7",
+    "Type": {
+      "DisplayName": "Test"
+    },
+    "StartRound": {
+      "TimeSpan": "10:45 AM - 12:00 PM"
+    },
+    "EndRound": {
+      "TimeSpan": "10:45 AM - 12:00 PM"
+    },
+    "Day": {
+      "DisplayName": "Tuesday, June 21"
+    },
+    "Room": {
+      "DisplayName": "Room 1"
+    },
+    "SessionLevels": [{
+      "DisplayName": "SessionLevel 1"
+    }],
+    "id": "5784ed66-116e-4ecd-aee6-1da56649f45d"
+  },
+  {
+    "Name": "Session 8",
+    "Type": {
+      "DisplayName": "Test"
+    },
+    "StartRound": {
+      "TimeSpan": "10:45 AM - 12:00 PM"
+    },
+    "EndRound": {
+      "TimeSpan": "10:45 AM - 12:00 PM"
+    },
+    "Day": {
+      "DisplayName": "Tuesday, June 21"
+    },
+    "Room": {
+      "DisplayName": "Room 1"
+    },
+    "SessionLevels": [{
+      "DisplayName": "SessionLevel 1"
+    }],
+    "id": "6784ed66-116e-4ecd-aee6-1da56649f45d"
+  },
+  {
+    "Name": "Session 9",
+    "Type": {
+      "DisplayName": "Test"
+    },
+    "StartRound": {
+      "TimeSpan": "10:45 AM - 12:00 PM"
+    },
+    "EndRound": {
+      "TimeSpan": "10:45 AM - 12:00 PM"
+    },
+    "Day": {
+      "DisplayName": "Tuesday, June 21"
+    },
+    "Room": {
+      "DisplayName": "Room 1"
+    },
+    "SessionLevels": [{
+      "DisplayName": "SessionLevel 1"
+    }],
+    "id": "7784ed66-116e-4ecd-aee6-1da56649f45d"
+  },
+  {
+    "Name": "Session 10",
+    "Type": {
+      "DisplayName": "Test"
+    },
+    "StartRound": {
+      "TimeSpan": "10:45 AM - 12:00 PM"
+    },
+    "EndRound": {
+      "TimeSpan": "10:45 AM - 12:00 PM"
+    },
+    "Day": {
+      "DisplayName": "Tuesday, June 21"
+    },
+    "Room": {
+      "DisplayName": "Room 1"
+    },
+    "SessionLevels": [{
+      "DisplayName": "SessionLevel 1"
+    }],
+    "id": "8784ed66-116e-4ecd-aee6-1da56649f45d"
+  },
+  {
+    "Name": "Session 1 (Round 10)",
+    "Type": {
+      "DisplayName": "Test"
+    },
+    "StartRound": {
+      "TimeSpan": "4:30 PM - 5:45PM"
+    },
+    "EndRound": {
+      "TimeSpan": "4:30 PM - 5:45 PM"
+    },
+    "Day": {
+      "DisplayName": "Wednesday, June 22"
+    },
+    "Room": {
+      "DisplayName": "Room 1"
+    },
+    "SessionLevels": [{
+      "DisplayName": "SessionLevel 1"
+    }],
+    "id": "0131a925-ede8-402a-a00b-ddb2261352f5"
+  }
+]
