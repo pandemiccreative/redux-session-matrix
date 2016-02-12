@@ -1,5 +1,6 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
+import { connect } from 'react-redux';
 
 const AppHeader = React.createClass({
   mixins: [PureRenderMixin],
@@ -12,4 +13,11 @@ const AppHeader = React.createClass({
   }
 });
 
-export default AppHeader;
+function mapStateToProps(state){
+  // console.log(state.get('favSessions').map((session, i) => 'session ' + i));
+  return{
+    appTitle: state.get('appTitle')
+  };
+}
+
+export const AppHeaderContainer = connect(mapStateToProps)(AppHeader);

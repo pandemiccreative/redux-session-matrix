@@ -1,4 +1,14 @@
+import { combineReducers } from 'redux';
 import { Map, List } from 'immutable';
+
+function setState(state, newState){
+  return state.merge(newState);
+}
+
+function toggleFav(state, id){
+  const sessionIndex = state.get('sessions').findIndex((val) => {return val.get('id') === id});
+  return state.updateIn(['sessions', sessionIndex], (val) => {return val.set('faved', !val.get('faved'))})
+}
 
 function setFav(state, newState){
   if(!!state.get('favSessions')){
@@ -65,14 +75,116 @@ function addFav(state, toAdd){
 //   }
 // }
 
-export default function(state = Map(), action){
-  switch(action.type){
-    case 'SET_FAV':
-      return setFav(state, action.state);
-    case 'DEL_FAV':
-      return delFav(state, action.toDel);
-    case 'ADD_FAV':
-      return addFav(state, action.toAdd);
-  }
-  return state;
-}
+const reducer = combineReducers({
+  appTitle: appTitle,
+  favSessions: favSessions,
+  sessions: sessions,
+  rounds: rounds,
+  page: page
+})
+
+// export const reducer = (state = Map({
+//   appTitle: 'Sessions',
+//   favSessions: List([]),
+//   sessions: List([]),
+//   rounds: List([
+//     Map({
+//       displayName: 'Round 1',
+//       day: 'Tuesday, June 21',
+//       startTime: '9:15 AM',
+//       endTime: '10:45 AM'
+//     }),
+//     Map({
+//       displayName: 'Round 2',
+//       day: 'Tuesday, June 21',
+//       startTime: '10:45 AM',
+//       endTime: '12:00 PM'
+//     }),
+//     Map({
+//       displayName: 'Round 3',
+//       day: 'Tuesday, June 21',
+//       startTime: '2:00 PM',
+//       endTime: '3:15 PM'
+//     }),
+//     Map({
+//       displayName: 'Round 4',
+//       day: 'Tuesday, June 21',
+//       startTime: '3:45 PM',
+//       endTime: '4:30 PM'
+//     }),
+//     Map({
+//       displayName: 'Round 5',
+//       day: 'Tuesday, June 21',
+//       startTime: '4:45 PM',
+//       endTime: '6:00 PM'
+//     }),
+//     Map({
+//       displayName: 'Round 6',
+//       day: 'Wednesday, June 22',
+//       startTime: '8:00 AM',
+//       endTime: '9:15 AM'
+//     }),
+//     Map({
+//       displayName: 'Round 7',
+//       day: 'Wednesday, June 22',
+//       startTime: '9:30 AM',
+//       endTime: '10:45 AM'
+//     }),
+//     Map({
+//       displayName: 'Round 8',
+//       day: 'Wednesday, June 22',
+//       startTime: '2:00 PM',
+//       endTime: '2:45 PM'
+//     }),
+//     Map({
+//       displayName: 'Round 9',
+//       day: 'Wednesday, June 22',
+//       startTime: '3:00 PM',
+//       endTime: '4:15 PM'
+//     }),
+//     Map({
+//       displayName: 'Round 10',
+//       day: 'Wednesday, June 22',
+//       startTime: '4:30 PM',
+//       endTime: '5:45 PM'
+//     })
+//   ]),
+//   page: 0
+// }), action) => {
+//   return Map({
+//     appTitle: appTitle(
+//       state.get('appTitle'),
+//       action
+//     ),
+//     favSessions: favSessions(
+//       state.get('favSessions'),
+//       action
+//     ),
+//     sessions: sessions(
+//       state.get('sessions'),
+//       action
+//     ),
+//     rounds: rounds(
+//       state.get('rounds'),
+//       action
+//     ),
+//     page: page(
+//       state.get('page'),
+//       action
+//     )
+//   });
+//
+//   // switch(action.type){
+//   //   case 'SET_STATE':
+//   //     return setState(state, action.state);
+//   //   case 'TOGGLE_FAV':
+//   //     return toggleFav(state, action.state.get('id'));
+//   //   case 'SET_FAV':
+//   //     return setFav(state, action.state);
+//   //   case 'DEL_FAV':
+//   //     return delFav(state, action.toDel);
+//   //   case 'ADD_FAV':
+//   //     return addFav(state, action.toAdd);
+//   // }
+//   // return state;
+// }

@@ -39,35 +39,35 @@ describe('Session', () => {
     expect(sessionRoom.textContent).to.equal('Room: Room 1');
   });
 
-  it('invokes callback when the fav button is clicked', () => {
-    const initialState = Map({
-      sessions: [
-        {
-          "id": "81273",
-          "Name": "Session 1 Title",
-          "Type": {
-            "DisplayName": "SessionType 1",
-          },
-          "Room": {
-            "DisplayName": "Room 1",
-          },
-          "SessionLevels": [
-            {
-              "DisplayName": "SessionLevel 1",
-            }
-          ]
-        }
-      ]
-    });
-    let faved;
-    const fav = (entry) => faved = entry;
-    const component = renderIntoDocument(
-      <Session {...initialState.get('sessions')[0]} onFav={fav} />
-    );
-    const btn = findRenderedDOMComponentWithTag(component, 'svg');
-    Simulate.click(btn);
-
-    expect(faved).to.equal('81273');
-  })
+  // it('invokes callback when the fav button is clicked', () => {
+  //   const initialState = Map({
+  //     sessions: [
+  //       {
+  //         "id": "81273",
+  //         "Name": "Session 1 Title",
+  //         "Type": {
+  //           "DisplayName": "SessionType 1",
+  //         },
+  //         "Room": {
+  //           "DisplayName": "Room 1",
+  //         },
+  //         "SessionLevels": [
+  //           {
+  //             "DisplayName": "SessionLevel 1",
+  //           }
+  //         ]
+  //       }
+  //     ]
+  //   });
+  //   let faved;
+  //   const fav = (entry) => faved = entry;
+  //   const component = renderIntoDocument(
+  //     <Session {...initialState.get('sessions')[0]} onFav={fav} />
+  //   );
+  //   const btn = findRenderedDOMComponentWithTag(component, 'svg');
+  //   Simulate.click(btn);
+  //
+  //   expect(faved).to.equal('81273');
+  // })
 
 });

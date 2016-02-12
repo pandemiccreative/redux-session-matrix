@@ -15,6 +15,7 @@ const Session = React.createClass({
     }
   },
   render: function(){
+    console.log(this.props.Type);
     return(
       <li className="session-item"><a href="#">
           <div className="session">
@@ -22,7 +23,14 @@ const Session = React.createClass({
               <section className="session-title">
                 <h6>{this.getProps('name')}</h6>
               </section>
-              <section className={'session-fav' + (this.props.faved ? ' faved' : '')}><Gridicon icon='star' size='20' onClick={() => this.props.onFav(this.props.id)} /></section>
+              <section className={'session-fav' + (this.props.faved ? ' faved' : '')}>
+                <Gridicon icon='star'
+                          size='20'
+                          onClick={() => {store.dispatch({
+                            type: 'TOGGLE_FAV',
+                            id: this.props.id
+                          });}} />
+              </section>
             </header>
             <section className="session-details">
               <ul>

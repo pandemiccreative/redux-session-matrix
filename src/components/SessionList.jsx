@@ -8,9 +8,10 @@ const SessionList = React.createClass({
   render: function(){
     return(
       <ul>
-        {this.getSessions().map(entry =>
-          <Session key={entry.id} {...entry} />
-        )}
+        {this.getSessions().map(entry => {
+          console.log(entry);
+          return(<Session key={entry.get('id')} {...entry.toObject()} />);
+        })}
       </ul>
     );
   }

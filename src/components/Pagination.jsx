@@ -2,7 +2,6 @@ import React from 'react';
 
 const Pagination = React.createClass({
   render: function(){
-    console.log(this.props.chunks);
     return(
       <nav className="pagination">
         {this.props.chunks.map((chunk, i) => {

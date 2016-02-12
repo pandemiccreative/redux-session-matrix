@@ -5,6 +5,116 @@ import reducer from '../src/reducer.js';
 
 describe('Reducer', () => {
 
+  it('handles SET_STATE', () => {
+    const initialState = Map();
+    const action = {
+      type: 'SET_STATE',
+      state: Map({
+        appTitle: 'Sessions',
+        favSessions: List.of('001', '005', '010'),
+        sessions: List.of(Map({
+          Name: "Session 1",
+          id: "2784ed66-116e-4ecd-aee6-1da56649f44d",
+          faved: true
+        }))
+      })
+    };
+    const nextState = reducer(initialState, action);
+
+    expect(nextState).to.equal(fromJS({
+      appTitle: 'Sessions',
+      favSessions: ['001', '005', '010'],
+      sessions: [
+        {
+          Name: 'Session 1',
+          id: '2784ed66-116e-4ecd-aee6-1da56649f44d',
+          faved: true
+        }
+      ]
+    }))
+  });
+
+  it('handles SET_STATE with plain JS payload', () => {
+    const initialState = Map();
+    const action = {
+      type: 'SET_STATE',
+      state: {
+        appTitle: 'Sessions',
+        favSessions: ['001', '005', '010'],
+        sessions: [
+          {
+            Name: 'Session 1',
+            id: '2784ed66-116e-4ecd-aee6-1da56649f44d',
+            faved: true
+          }
+        ]
+      }
+    };
+    const nextState = reducer(initialState, action);
+
+    expect(nextState).to.equal(fromJS({
+      appTitle: 'Sessions',
+      favSessions: ['001', '005', '010'],
+      sessions: [
+        {
+          Name: 'Session 1',
+          id: '2784ed66-116e-4ecd-aee6-1da56649f44d',
+          faved: true
+        }
+      ]
+    }));
+  });
+
+  it('handles SET_STATE without initial state', () => {
+    const action = {
+      type: 'SET_STATE',
+      state: {
+        appTitle: 'Sessions',
+        favSessions: ['001', '005', '010'],
+        sessions: [
+          {
+            Name: 'Session 1',
+            id: '2784ed66-116e-4ecd-aee6-1da56649f44d',
+            faved: true
+          }
+        ]
+      }
+    };
+    const nextState = reducer(undefined, action);
+
+    expect(nextState).to.equal(fromJS({
+      appTitle: 'Sessions',
+      favSessions: ['001', '005', '010'],
+      sessions: [
+        {
+          Name: 'Session 1',
+          id: '2784ed66-116e-4ecd-aee6-1da56649f44d',
+          faved: true
+        }
+      ]
+    }));
+  });
+
+  it('handles TOGGLE_FAV', () => {
+    const initialState = Map({
+      appTitle: 'Sessions',
+      favSessions: ['001', '005', '010'],
+      sessions: List.of(Map({
+        Name: 'Session 1',
+        id: '2784ed66-116e-4ecd-aee6-1da56649f44d'
+      }))
+    });
+    const action = {
+      type: 'TOGGLE_FAV',
+      state: Map({
+        id: '2784ed66-116e-4ecd-aee6-1da56649f44d'
+      })
+    };
+    const nextState = reducer(initialState, action);
+
+    expect(nextState.getIn(['sessions', 0, 'faved'])).to.equal(true);
+  });
+
   it('handles SET_FAV', () => {
     const initialState = Map();
     const action = {
