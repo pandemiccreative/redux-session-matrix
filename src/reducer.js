@@ -1,14 +1,38 @@
 import { combineReducers } from 'redux';
 import { Map, List } from 'immutable';
 
-function setState(state, newState){
-  return state.merge(newState);
+function addFav(state, id){
+  return state.push(id);
+}
+
+function delFav(state, id){
+  return state.delete(state.findIndex((val) => val === id));
+}
+
+function setSessions(state, sessions){
+  return state.merge(sessions);
 }
 
 function toggleFav(state, id){
-  const sessionIndex = state.get('sessions').findIndex((val) => {return val.get('id') === id});
-  return state.updateIn(['sessions', sessionIndex], (val) => {return val.set('faved', !val.get('faved'))})
+  state.update(state.findIndex((val) => val.get('id') === id), (val) => console.log(val.get('faved')));
 }
+
+function setRounds(state, rounds){
+  return state.merge(rounds);
+}
+
+function setPage(state, page){
+  return page;
+}
+
+function setState(state, newState){
+  return Map(state).merge(Map(newState)).toObject();
+}
+
+// function toggleFav(state, id){
+//   const sessionIndex = state.get('sessions').findIndex((val) => {return val.get('id') === id});
+//   return state.updateIn(['sessions', sessionIndex], (val) => {return val.set('faved', !val.get('faved'))})
+// }
 
 function setFav(state, newState){
   if(!!state.get('favSessions')){
@@ -22,22 +46,9 @@ function setFav(state, newState){
   }
 }
 
-function delFav(state, toDel){
-  let newState = state;
-  state.get('favSessions').map((entry, i) => {
-      if(entry === toDel){ newState = state.set('favSessions', state.get('favSessions').delete(i))};
-  });
 
-  if(newState.get('favSessions').size < 1) newState = newState.remove('favSessions');
 
-  return newState;
-}
 
-function addFav(state, toAdd){
-  const hold = state.get('sessions').find((entry) => {return entry.get('id') === toAdd}).set('faved', true);
-  const updatedSession = state.get('sessions').merge(List.of(hold));
-  return state.set('sessions', updatedSession);
-}
 
 // function createCookie(cname, cvalue, expd){
 //   let expires = '';
@@ -75,7 +86,67 @@ function addFav(state, toAdd){
 //   }
 // }
 
-const reducer = combineReducers({
+// const state = (state = {appTitle: 'Sessions'}, action) => {
+//   switch(action.type){
+//     case 'SET_STATE':
+//       console.log(setState(state, action.state));
+//       return setState(state, action.state);
+//     default:
+//       return state
+//   }
+// }
+
+const appTitle = (state = '', action) => {
+  switch(action.type){
+    case 'SET_TITLE':
+      return action.title;
+    default:
+      return state;
+  }
+}
+
+const favSessions = (state = List([]), action) => {
+  switch(action.type){
+    case 'ADD_FAV':
+      return addFav(state, action.id);
+    case 'DEL_FAV':
+      return delFav(state, action.id);
+    default:
+      return state;
+  }
+}
+
+const sessions = (state = List([]), action) => {
+  switch(action.type){
+    case 'SET_SESSIONS':
+      return setSessions(state, action.sessions);
+    case 'TOGGLE_FAV':
+      toggleFav(state, action.id);
+      return state;
+    default:
+      return state;
+  }
+}
+
+const rounds = (state = List([]), action) => {
+  switch(action.type){
+    case 'SET_ROUNDS':
+      return setRounds(state, action.rounds);
+    default:
+      return state;
+  }
+}
+
+const page = (state = 0, action) => {
+  switch(action.type){
+    case 'SET_PAGE':
+      return setPage(state, action.page);
+    default:
+      return state;
+  }
+}
+
+export const reducer = combineReducers({
   appTitle: appTitle,
   favSessions: favSessions,
   sessions: sessions,

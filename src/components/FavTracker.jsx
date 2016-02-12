@@ -16,7 +16,7 @@ const FavTracker = React.createClass({
 
 function mapStateToProps(state){
   return {
-    favSessions: state.get('favSessions')
+    favSessions: state.favSessions
   };
 }
 

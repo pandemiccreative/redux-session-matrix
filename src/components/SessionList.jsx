@@ -1,20 +1,43 @@
 import React from 'react';
-import Session from './Session';
+import { connect } from 'react-redux';
+import SessionContainer from './Session';
 
 const SessionList = React.createClass({
   getSessions: function(){
-    return this.props.sessions || [];
+    return this.props.sessions || List([]);
   },
   render: function(){
     return(
       <ul>
-        {this.getSessions().map(entry => {
-          console.log(entry);
-          return(<Session key={entry.get('id')} {...entry.toObject()} />);
+        {this.getSessions().map((session) => {
+          return(<button onClick={() => this.props.onFavClick(session.get('id'))}>{session.get('id')}</button>)
         })}
       </ul>
     );
   }
 });
 
-export default SessionList;
+function mapStateToProps(state){
+  return{
+    sessions: state.sessions
+  };
+}
+
+function mapDispatchToProps(dispatch){
+  return{
+    onFavClick: (id) => {
+      dispatch(
+        {
+          type: 'TOGGLE_FAV',
+          id
+        }
+      )
+    }
+  };
+}
+
+export const SessionListContainer = connect(mapStateToProps, mapDispatchToProps)(SessionList);
+
+// {this.getSessions().map(entry => {
+//   return(<SessionContainer key={entry.get('id')} {...entry.toObject()} />);
+// })}

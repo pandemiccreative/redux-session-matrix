@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Gridicon from './Gridicon';
 
 const Session = React.createClass({
@@ -15,7 +16,6 @@ const Session = React.createClass({
     }
   },
   render: function(){
-    console.log(this.props.Type);
     return(
       <li className="session-item"><a href="#">
           <div className="session">
@@ -26,10 +26,10 @@ const Session = React.createClass({
               <section className={'session-fav' + (this.props.faved ? ' faved' : '')}>
                 <Gridicon icon='star'
                           size='20'
-                          onClick={() => {store.dispatch({
-                            type: 'TOGGLE_FAV',
-                            id: this.props.id
-                          });}} />
+                          onClick={(e) => {
+                            e.preventDefault();
+                            console.log('CLICKED');
+                          }} />
               </section>
             </header>
             <section className="session-details">
@@ -51,4 +51,15 @@ const Session = React.createClass({
   }
 });
 
-export default Session;
+function mapDispatchToProps(dispatch){
+  return {
+    onFavClick: (id) => {
+      return dispatch({
+        type: 'TOGGLE_FAV',
+        id
+      })
+    }
+  };
+};
+
+export const SessionContainer = connect(mapDispatchToProps)(Session);

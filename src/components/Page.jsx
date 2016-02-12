@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { List } from 'immutable';
 import _ from 'lodash';
 import { RoundListContainer } from './RoundList';
+import { SessionListContainer } from './SessionList';
 import Pagination from './Pagination';
 
 const Page = React.createClass({
@@ -13,7 +14,7 @@ const Page = React.createClass({
     return(
       <div className="page">
         <Pagination chunks={List(this.chunkSessions())} />
-        <RoundListContainer sessions={this.chunkSessions()[this.props.page]} />
+        <SessionListContainer />
       </div>
     );
   }
@@ -21,9 +22,12 @@ const Page = React.createClass({
 
 function mapStateToProps(state){
   return{
-    sessions: state.get('sessions'),
-    page: state.get('page')
+    sessions: state.sessions,
+    page: state.page
   };
 }
 
 export const PageContainer = connect(mapStateToProps)(Page);
+
+
+//<RoundListContainer sessions={this.chunkSessions()[this.props.page]} />

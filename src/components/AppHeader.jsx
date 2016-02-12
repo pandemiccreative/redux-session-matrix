@@ -1,10 +1,12 @@
 import React from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
+// import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
 
 const AppHeader = React.createClass({
-  mixins: [PureRenderMixin],
+  // mixins: [PureRenderMixin],
   render: function(){
+    // console.log("TEST")
+    // console.log(store);
     return(
       <header className="app-header">
         <h1 className="app-title">{this.props.appTitle}</h1>
@@ -14,9 +16,8 @@ const AppHeader = React.createClass({
 });
 
 function mapStateToProps(state){
-  // console.log(state.get('favSessions').map((session, i) => 'session ' + i));
   return{
-    appTitle: state.get('appTitle')
+    appTitle: state.appTitle
   };
 }
 
