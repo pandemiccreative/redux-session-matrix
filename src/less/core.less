@@ -491,3 +491,16 @@ main.session-detail-container{
         transform:         scale(1.0,1.0);
     }
 }
+
+.sLevel{
+
+	&::after{
+		content: ', ';
+	}
+	&:last-child{
+
+		&::after{
+			content: '';
+		}
+	}
+}

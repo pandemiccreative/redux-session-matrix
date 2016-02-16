@@ -9,7 +9,10 @@ const Gridicon = React.createClass({
           className={this.props.icon}
           height={this.props.size}
           width={this.props.size}
-          onClick={this.props.onClick}
+          onClick={(e) => {
+            e.preventDefault();
+            this.props.onClick()
+          }}
           xmlns='http://www.w3.org/2000/svg'
           viewBox='0 0 243.7 232.9'
           >

@@ -8,7 +8,9 @@ const Checkbox = React.createClass({
              checked={this.props.checked}
              name={this.props.name}
              value={this.props.value}
-             onChange={() => {}} />
+             onChange={(e) => {
+               this.props.toggle(this.props.value, e.target.checked);
+             }} />
     );
   }
 });

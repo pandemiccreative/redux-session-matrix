@@ -2,7 +2,7 @@ import React from 'react';
 import { AppHeaderContainer } from './AppHeader';
 import { FavTrackerContainer } from './FavTracker';
 import { PageContainer } from './Page';
-import SessionFilter from './SessionFilter';
+import { SessionFilterContainer } from './SessionFilter';
 
 const App = React.createClass({
   // getSessions: function(){
@@ -16,7 +16,7 @@ const App = React.createClass({
       <div className="container cf">
         <AppHeaderContainer />
         <FavTrackerContainer />
-        <SessionFilter />
+        <SessionFilterContainer />
         <main className="app-sessions">
           <PageContainer />
         </main>

@@ -10,16 +10,6 @@ import './less/core.less';
 const sessions = require('./json/sessions.json').map((session) => Map(session));
 
 const store = createStore(reducer);
-store.dispatch({
-  type: 'SET_STATE',
-  state: {
-    appTitle: 'Sessions',
-    favSessions: List.of('001', '002', '010'),
-    sessions: List(sessions.map((session) => {return Map(session)})),
-    rounds: 'asdf',
-    page: 0
-  }
-});
 
 store.dispatch({
   type: 'SET_TITLE',
@@ -107,7 +97,7 @@ store.dispatch({
       displayName: 'Round 10',
       day: 'Wednesday, June 22',
       startTime: '4:30 PM',
-      endTime: '5:45 PM'
+      endTime: '6:00 PM'
     })
   )
 });

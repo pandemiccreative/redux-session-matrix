@@ -13,8 +13,27 @@ function setSessions(state, sessions){
   return state.merge(sessions);
 }
 
+function setFavs(state){
+  const favs = getCookie('favSessions').split(',');
+  // console.log(state.toJS())
+  const newState = state.map((session) => {
+    // console.log(session)
+    const compare = favs.map((fav) => {return (session.get('id') === fav)})
+    return (compare.indexOf(true) !== -1) ? session.set('faved', true) : session;
+  });
+  return newState;
+}
+
 function toggleFav(state, id){
-  state.update(state.findIndex((val) => val.get('id') === id), (val) => console.log(val.get('faved')));
+  const target = state.findIndex((val) => val.get('id') === id);
+  const newState = state.update(target, (val) => val.set('faved', !val.get('faved')));
+  const newTarget = newState.findIndex((val) => val.get('id') === id);
+  if(newState.getIn([newTarget, 'faved'])){
+    addToCookie('favSessions', id);
+  } else{
+    delFromCookie('favSessions', id);
+  }
+  return newState;
 }
 
 function setRounds(state, rounds){
@@ -50,41 +69,71 @@ function setFav(state, newState){
 
 
 
-// function createCookie(cname, cvalue, expd){
-//   let expires = '';
-//   if(expd){
-//     let d = new Date();
-//     d.setTime(d.getTime() + (expd*24*60*60*1000));
-//     expires = 'expires='+d.toUTCString();
-//   };
-//   document.cookie = cname + '=' + cvalue + ';' + expires;
-//   console.log(document.cookie);
-// }
-//
-// function getCookie(cname){
-//   const name = cname + '=';
-//   const ca = document.cookie.split(';');
-//   let cdata = '';
-//   ca.map((c) => {
-//     while(c.charAt(0) === ' ') c = c.substring(1);
-//     if(c.indexOf(name) === 0){
-//       cdata = c.substring(name.length, c.length)
-//     }
-//   });
-//   return cdata;
-// }
-//
-// function addToCookie(cname, cvalue){
-//   const currC = getCookie(cname);
-//
-//   if(!currC){
-//     createCookie(cname, cvalue);
-//   } else{
-//     const cData = List(currC.split(','));
-//     const fVal = cData.push(cvalue).toArray().join(',');
-//     createCookie(cname, fVal);
-//   }
-// }
+function createCookie(cname, cvalue, expd){
+  let expires = '';
+  if(expd){
+    let d = new Date();
+    d.setTime(d.getTime() + (expd*24*60*60*1000));
+    expires = 'expires='+d.toUTCString();
+  };
+  document.cookie = cname + '=' + cvalue + ';' + expires;
+}
+
+function getCookie(cname){
+  const name = cname + '=';
+  const ca = document.cookie.split(';');
+  let cdata = '';
+  ca.map((c) => {
+    while(c.charAt(0) === ' ') c = c.substring(1);
+    if(c.indexOf(name) === 0){
+      cdata = c.substring(name.length, c.length)
+    }
+  });
+  return cdata;
+}
+
+function addToCookie(cname, cvalue){
+  const currC = getCookie(cname);
+  if(!currC){
+    createCookie(cname, cvalue);
+  } else{
+    const cData = List(currC.split(','));
+    const fVal = cData.push(cvalue).toArray().join(',');
+    createCookie(cname, fVal);
+  }
+}
+
+function delFromCookie(cname, del){
+  const cData = List(getCookie(cname).split(','));
+  const index = cData.findIndex((val) => val === del);
+  const newData = cData.delete(index);
+  createCookie(cname, newData.toArray());
+}
+
+function toggleFilter(state, filter, checked){
+  const filterType = filter.split('-')[0];
+  const filterVal = filter.split('-')[1];
+  // console.log(state.get('favorites'));
+  switch(filterType){
+    case 'favorites':
+      return filterFavs(state, checked);
+    case 'role':
+    case 'level':
+    case 'round':
+    case 'type':
+      return filterOpts(state, filterType, filterVal, checked);
+    default:
+      return state;
+  }
+}
+
+function filterFavs(state, checked){
+  return state.set('favorites', checked);
+}
+function filterOpts(state, type, filter, checked){
+  const newState = state.update(type, (val) => { return (checked) ? val.push(filter) : val.delete(val.findIndex((val) => val === filter)) });
+  return newState;
+}
 
 // const state = (state = {appTitle: 'Sessions'}, action) => {
 //   switch(action.type){
@@ -105,12 +154,10 @@ const appTitle = (state = '', action) => {
   }
 }
 
-const favSessions = (state = List([]), action) => {
+const favSessions = (state = List(getCookie('favSessions').split(',')), action) => {
   switch(action.type){
-    case 'ADD_FAV':
-      return addFav(state, action.id);
-    case 'DEL_FAV':
-      return delFav(state, action.id);
+    case 'REFRESH_FAVS':
+      return List(getCookie('favSessions').split(','));
     default:
       return state;
   }
@@ -120,9 +167,10 @@ const sessions = (state = List([]), action) => {
   switch(action.type){
     case 'SET_SESSIONS':
       return setSessions(state, action.sessions);
+    case 'SET_FAVS':
+      return setFavs(state);
     case 'TOGGLE_FAV':
-      toggleFav(state, action.id);
-      return state;
+      return toggleFav(state, action.id);
     default:
       return state;
   }
@@ -146,12 +194,28 @@ const page = (state = 0, action) => {
   }
 }
 
+const filter = (state = Map({
+  favorites: false,
+  role: List([]),
+  level: List([]),
+  round: List([]),
+  type: List([])
+}), action) => {
+  switch(action.type){
+    case 'TOGGLE_FILTER':
+      return toggleFilter(state, action.filter, action.checked);
+    default:
+      return state;
+  }
+}
+
 export const reducer = combineReducers({
   appTitle: appTitle,
   favSessions: favSessions,
   sessions: sessions,
   rounds: rounds,
-  page: page
+  page: page,
+  filter: filter
 })
 
 // export const reducer = (state = Map({

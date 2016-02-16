@@ -1,27 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import SessionContainer from './Session';
+import Session from './Session';
 
 const SessionList = React.createClass({
-  getSessions: function(){
-    return this.props.sessions || List([]);
-  },
   render: function(){
     return(
       <ul>
-        {this.getSessions().map((session) => {
-          return(<button onClick={() => this.props.onFavClick(session.get('id'))}>{session.get('id')}</button>)
+        {this.props.sessions.map((session) => {
+          return(
+            <Session key={session.get('id')} onFav={this.props.onFavClick} session={session} />
+          );
         })}
       </ul>
     );
   }
 });
-
-function mapStateToProps(state){
-  return{
-    sessions: state.sessions
-  };
-}
 
 function mapDispatchToProps(dispatch){
   return{
@@ -32,12 +25,16 @@ function mapDispatchToProps(dispatch){
           id
         }
       )
+      dispatch(
+        {
+          type: 'REFRESH_FAVS'
+        }
+      )
     }
   };
 }
 
-export const SessionListContainer = connect(mapStateToProps, mapDispatchToProps)(SessionList);
+export const SessionListContainer = connect(undefined, mapDispatchToProps)(SessionList);
 
-// {this.getSessions().map(entry => {
-//   return(<SessionContainer key={entry.get('id')} {...entry.toObject()} />);
-// })}
+
+// <button key={session.get('id')} onClick={() => this.props.onFavClick(session.get('id'))}>{session.get('id')}</button>

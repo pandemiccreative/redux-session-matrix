@@ -21,17 +21,11 @@ const RoundList = React.createClass({
     return rSessions;
   },
   render: function(){
+    // console.log(this.props.sessions);
     return(
       <div className="round-list">
-        {this.getRounds().map((round) => {
-          const rSessions = this.assignSessions(round.get('day'), round.get('startTime'), round.get('endTime'));
-          if(rSessions.size > 0){
-            return(
-              <Round key={round.get('displayName')}
-                     round={round.get('displayName')}
-                     sessions={rSessions} />
-            );
-          }
+        {this.props.rounds.map((round) => {
+          return(<h1>Test</h1>);
         })}
       </div>
     );
@@ -41,9 +35,19 @@ const RoundList = React.createClass({
 function mapStateToProps(state){
   return{
     rounds: state.rounds,
-    page: state.page,
-    sessions: state.sessions
+    page: state.page
   };
 }
 
 export const RoundListContainer = connect(mapStateToProps)(RoundList);
+
+// {this.getRounds().map((round) => {
+//   const rSessions = this.assignSessions(round.get('day'), round.get('startTime'), round.get('endTime'));
+//   if(rSessions.size > 0){
+//     return(
+//       <Round key={round.get('displayName')}
+//              round={round.get('displayName')}
+//              sessions={rSessions} />
+//     );
+//   }
+// })}
